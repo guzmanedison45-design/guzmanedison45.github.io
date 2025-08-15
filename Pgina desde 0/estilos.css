@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(124, 213, 243);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container {
+    width: 1100px;
+    margin: 20px auto;
+    border: 1px solid black;
+    background: white;
+}
+
+/* Header */
+header {
+    background: rgb(55, 145, 175);
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    color: white;
+    border-bottom: 1px solid black;  
+    border-radius: 5px 5px 0 0;
+}
+
+/* Menú */
+nav {
+    background: rgb(151, 221, 242);
+    border-bottom: 1px solid black;  
+}
+nav ul.menu {
+    list-style: none;
+    text-align: center;
+    padding: 10px 0;
+}
+nav ul.menu li {
+    display: inline-block;
+    margin: 0 15px;
+}
+nav ul.menu li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+nav ul.menu li a:hover {
+    color: darkblue;
+}
+
+/* Contenido y barra lateral */
+#content {
+    float:left;
+    width: 75%;
+    padding: 20px;
+    background: rgb(103, 214, 103);
+    min-height: 400px;
+}
+
+aside {
+    float:left;
+    width: 25%;
+    padding: 20px;
+    background: rgb(164, 228, 86);
+    min-height: 400px;
+}
+
+/* Limpiar flotados */
+.clearfix {
+    clear: both;
+}
+
+/* Footer */
+footer {
+    background: rgb(55, 145, 175);
+    text-align: center;
+    padding: 15px;
+    color: white;
+    border-top: 1px solid black;
+}
+
+/* Estilos para archivos */
+#listaArchivos {
+    margin-top: 20px;
+    text-align: left;
+}
+.archivo {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    background: #f8f8f8;
+}
+.eliminar {
+    float: right;
+    color: red;
+    cursor: pointer;
+}
+

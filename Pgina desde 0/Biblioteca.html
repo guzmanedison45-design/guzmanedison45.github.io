@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+    <title>Biblioteca</title>
+    <body>
+         <H1>Biebenido a Biblioteca</H1>
+         <ul>
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+            <li><a href="Biblioteca.html">Biblioteca</a></li>
+         </ul>
+
+      
+    </body>
+    </html> 
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Biblioteca Digital</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    form {
+      margin: 20px 0;
+    }
+    input {
+      padding: 8px;
+      margin: 5px;
+    }
+    button {
+      padding: 8px 12px;
+      background: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    #listaLibros {
+      margin-top: 20px;
+      text-align: left;
+      display: inline-block;
+    }
+    .libro {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 5px;
+      background: #fff;
+      border-radius: 5px;
+    }
+    .eliminar {
+      color: red;
+      cursor: pointer;
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <h1>📚 Biblioteca Digital</h1>
+
+  <!-- Formulario para agregar libros -->
+  <form id="formLibro">
+    <input type="text" id="titulo" placeholder="Título del libro" required>
+    <input type="text" id="autor" placeholder="Autor" required>
+    <button type="submit">Agregar libro</button>
+  </form>
+
+  <!-- Buscador -->
+  <input type="text" id="buscar" placeholder="Buscar libro...">
+
+  <!-- Lista de libros -->
+  <div id="listaLibros"></div>
+
+  <script>
+    let libros = [];
+
+    const form = document.getElementById("formLibro");
+    const listaLibros = document.getElementById("listaLibros");
+    const buscar = document.getElementById("buscar");
+
+    // Agregar libro
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const titulo = document.getElementById("titulo").value;
+      const autor = document.getElementById("autor").value;
+      libros.push({ titulo, autor });
+      mostrarLibros();
+      form.reset();
+    });
+
+    // Mostrar libros
+    function mostrarLibros(filtro = "") {
+      listaLibros.innerHTML = "";
+      libros
+        .filter(libro => libro.titulo.toLowerCase().includes(filtro.toLowerCase()))
+        .forEach((libro, index) => {
+          const div = document.createElement("div");
+          div.classList.add("libro");
+          div.innerHTML = `<b>${libro.titulo}</b> - ${libro.autor} 
+            <span class="eliminar" onclick="eliminarLibro(${index})">🗑️</span>`;
+          listaLibros.appendChild(div);
+        });
+    }
+
+    // Eliminar libro
+    function eliminarLibro(index) {
+      libros.splice(index, 1);
+      mostrarLibros(buscar.value);
+    }
+
+    // Buscar libro
+    buscar.addEventListener("input", function() {
+      mostrarLibros(this.value);
+    });
+  </script>
+  <script src="biblioteca.js"></script>
+
+</body>
+</html>
